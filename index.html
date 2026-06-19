@@ -1,0 +1,1653 @@
+<!doctype html>
+<html lang="vi" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Everon Eco-Sleep | Trạm Thiên Nhiên Thu Nhỏ</title>
+    
+    <!-- Tailwind CSS v4 Browser Playground CDN -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Elegant Fonts from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+      :root {
+        --font-serif: "Playfair Display", Georgia, serif;
+        --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+        --color-eco-beige: #F5F2EB;
+        --color-eco-charcoal: #333333;
+        --color-eco-sage: #5F7161;
+        --color-eco-stone: #8E8D8A;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        background-color: var(--color-eco-beige);
+        color: var(--color-eco-charcoal);
+      }
+
+      .font-serif {
+        font-family: var(--font-serif);
+      }
+
+      /* Custom Zen Glass styles */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      /* Custom system scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #F5F2EB;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #5F7161;
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #333333;
+      }
+
+      /* Smooth custom transitions */
+      .fabric-tab-transition {
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      
+      .spin-slow {
+        animation: spin 12s linear infinite;
+      }
+
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body class="bg-[#F5F2EB] text-[#333333] font-sans antialiased overflow-x-hidden selection:bg-[#5F7161] selection:text-white">
+
+    <!-- NAV BAR -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 border-b border-stone-200/50 glass-card">
+      <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+        <a href="#" class="flex items-center gap-2 group">
+          <i data-lucide="leaf" class="w-6 h-6 text-[#5F7161] group-hover:rotate-12 transition-transform duration-300"></i>
+          <span class="text-xl md:text-2xl font-semibold tracking-[0.25em] font-serif uppercase">
+            EVERON
+          </span>
+        </a>
+
+        <!-- Desktop menu -->
+        <div class="hidden md:flex items-center space-x-8 lg:space-x-10 text-[11px] uppercase tracking-[0.2em] font-bold text-[#8E8D8A]">
+          <a href="#about" class="hover:text-[#5F7161] transition-colors duration-200">Trạm Sinh Thái</a>
+          <a href="#fabric-selector" class="hover:text-[#5F7161] transition-colors duration-200">Chất Liệu Xanh</a>
+          <a href="#sleep-advisor" class="hover:text-[#5F7161] transition-colors duration-200">AI Sinh Cảnh</a>
+          <a href="#soundscapes" class="hover:text-[#5F7161] transition-colors duration-200">Thính Giác Zen</a>
+          <a href="#tree-garden" class="hover:text-[#5F7161] transition-colors duration-200">Gieo Mầm Khỏe</a>
+          <a href="#faqs" class="hover:text-[#5F7161] transition-colors duration-200">Giải Đáp</a>
+        </div>
+
+        <div class="hidden md:block">
+          <a
+            href="#register"
+            class="bg-[#5F7161] text-white px-6 py-2.5 rounded-full text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-[#333333] transition-all duration-300 shadow-sm inline-block"
+          >
+            Nhận Mẫu Thử
+          </a>
+        </div>
+
+        <!-- Hamburger Mobile -->
+        <button
+          onclick="toggleMobileMenu()"
+          class="md:hidden p-1.5 rounded bg-white hover:bg-stone-100 border border-stone-200/50 text-[#333333]"
+          aria-label="Thanh điều hướng"
+        >
+          <i data-lucide="menu" id="hamburger-icon" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Mobile menu panel -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-stone-200 py-6 px-6 space-y-4 shadow-lg">
+        <div class="flex flex-col gap-3 font-semibold text-xs tracking-wider uppercase text-[#8E8D8A]">
+          <a href="#about" onclick="toggleMobileMenu()" class="py-1.5 border-b border-stone-100 font-medium hover:text-[#5F7161]">Trạm Sinh Thái</a>
+          <a href="#fabric-selector" onclick="toggleMobileMenu()" class="py-1.5 border-b border-stone-100 font-medium hover:text-[#5F7161]">Chất Liệu Xanh</a>
+          <a href="#sleep-advisor" onclick="toggleMobileMenu()" class="py-1.5 border-b border-stone-100 font-medium hover:text-[#5F7161]">AI Sinh Cảnh</a>
+          <a href="#soundscapes" onclick="toggleMobileMenu()" class="py-1.5 border-b border-stone-100 font-medium hover:text-[#5F7161]">Thính Giác Zen</a>
+          <a href="#tree-garden" onclick="toggleMobileMenu()" class="py-1.5 border-b border-stone-100 font-medium hover:text-[#5F7161]">Gieo Mầm Khỏe</a>
+          <a href="#faqs" onclick="toggleMobileMenu()" class="py-1.5 border-b border-stone-100 font-medium hover:text-[#5F7161]">Giải Đáp</a>
+        </div>
+        <a
+          href="#register"
+          onclick="toggleMobileMenu()"
+          class="inline-block w-full text-center bg-[#5F7161] text-white py-3 rounded-xl text-xs font-bold uppercase tracking-wider"
+        >
+          Nhận Voucher 20% & Thử Ga Giường
+        </a>
+      </div>
+    </nav>
+
+    <!-- SECTION 1: HERO BANNER -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-24 px-6 text-center overflow-hidden">
+      <!-- Orbs decoration -->
+      <div class="absolute top-24 -left-20 w-80 h-80 bg-[#5F7161]/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute bottom-20 -right-20 w-96 h-96 bg-[#5F7161]/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-4xl z-10 space-y-8">
+        <span class="inline-flex items-center gap-2 mb-2 text-[11px] tracking-[0.4em] uppercase text-[#5F7161] font-bold px-3 py-1 bg-white/60 rounded-full backdrop-blur-sm border border-stone-200/50">
+          🌳 Everon Eco-Sleep Collection
+        </span>
+        
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif mb-8 leading-[1.12] font-light tracking-tight text-[#333333]">
+          NGUYÊN BẢN VÀ ÊM ÁI – <br />
+          <span class="italic text-[#5F7161] font-normal">Đánh thức giác quan.</span>
+        </h1>
+
+        <p class="max-w-2xl mx-auto text-stone-600 text-sm md:text-base font-light leading-relaxed">
+          Nơi sợi hữu cơ, nụ mầm sồi và gió mát cao nguyên tụ hội nâng niu cơ thể mệt nhoài. Hãy biến phòng ngủ của bạn thành một Trạm thiên nhiên thu nhỏ để tĩnh lặng và chữa lành thật sự.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+          <a
+            href="#register"
+            class="w-full sm:w-auto bg-[#5F7161] text-white px-10 py-4.5 rounded-full text-[11px] uppercase tracking-[0.2em] font-semibold hover:bg-[#333333] transition-all duration-300 shadow-lg hover:-translate-y-0.5 text-center"
+          >
+            Trải Nghiệm Tinh Tế - Voucher 20%
+          </a>
+          <a
+            href="#sleep-advisor"
+            class="w-full sm:w-auto bg-white text-[#333333] border border-stone-200 hover:border-[#5F7161] px-10 py-4.5 rounded-full text-[11px] uppercase tracking-[0.2em] font-semibold transition-all duration-300 shadow-sm hover:shadow-md text-center"
+          >
+            Hỏi Cố Vấn Giấc Ngủ AI
+          </a>
+        </div>
+
+        <!-- YouTube 15s display presentation -->
+        <div class="relative w-full max-w-3xl mx-auto mt-16 shadow-2xl rounded-3xl overflow-hidden border-[12px] border-white ring-1 ring-black/5 bg-stone-100">
+          <div class="aspect-video bg-stone-200 flex items-center justify-center relative">
+            <iframe
+              class="w-full h-full absolute inset-0"
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&mute=1"
+              title="Trình chiếu không gian Everon Eco-Sleep 15s"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          
+          <div class="bg-white px-6 py-4 flex flex-col md:flex-row justify-between items-center text-left text-xs text-[#8E8D8A] gap-3 border-t border-stone-100">
+            <span class="flex items-center gap-1.5 font-light">
+              <i data-lucide="leaf" class="w-4 h-4 text-[#5F7161]"></i> Sợi sinh thái thô dệt không hóa chất từ thung lũng bảo tồn.
+            </span>
+            <span class="font-semibold uppercase tracking-wider text-[#5F7161]">
+              Trực quan 15s tinh hoa dệt may
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: THE THREE PILLARS (FEATURES) -->
+    <section id="about" class="py-24 md:py-32 bg-white relative">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+          <span class="text-[10px] tracking-[0.3em] font-bold uppercase text-[#5F7161] block">Linh Hồn Sản Phẩm</span>
+          <h2 class="text-3xl md:text-5xl font-serif text-[#333333]">Hành Trình Gieo Nén Bình Yên</h2>
+          <p class="text-stone-500 font-light text-sm md:text-base leading-relaxed">
+            Chúng tôi không sản xuất gối mền công nghiệp thông thường. Dưới bóng râm của các cánh rừng già sồi bạch đàn cổ thụ, từng rãnh cellulose được tách chiết sinh học để tạo nên màng bọc thông khí 100% không xơ nhựa tổng hợp.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-12 lg:gap-16">
+          <!-- Phép màu 1 -->
+          <div class="group text-center space-y-5 bg-[#F5F2EB]/25 p-8 rounded-3xl border border-stone-100 hover:border-[#5F7161]/20 transition-all duration-300 hover:shadow-md">
+            <div class="p-4 bg-white shadow-sm inline-block rounded-2xl text-[#5F7161] group-hover:scale-105 transition-transform">
+              <i data-lucide="globe" class="w-8 h-8 font-light"></i>
+            </div>
+            <h3 class="text-2xl font-serif text-[#333333] group-hover:text-[#5F7161] transition-colors">Hơi thở nguyên bản</h3>
+            <p class="text-stone-500 leading-relaxed font-light text-sm">
+              Được làm bằng sợi sinh thái 100% tự nhiên phân hủy sinh học, giúp giải phóng hệ sinh thái trái đất khỏi gánh nặng của hạt vi nhựa tổng hợp.
+            </p>
+          </div>
+
+          <!-- Phép màu 2 -->
+          <div class="group text-center space-y-5 bg-[#F5F2EB]/25 p-8 rounded-3xl border border-stone-100 hover:border-[#5F7161]/20 transition-all duration-300 hover:shadow-md">
+            <div class="p-4 bg-white shadow-sm inline-block rounded-2xl text-[#5F7161] group-hover:scale-105 transition-transform">
+              <i data-lucide="sun" class="w-8 h-8 font-light"></i>
+            </div>
+            <h3 class="text-2xl font-serif text-[#333333] group-hover:text-[#5F7161] transition-colors">Vỗ về xúc giác</h3>
+            <p class="text-stone-500 leading-relaxed font-light text-sm">
+              Giải tán triệt để cảm giác ngột ngạt nhờ đối khí hạ nhiệt sinh học tự động mượt mà như nước, êm dịu bảo vệ làn da mỏng manh kén vải.
+            </p>
+          </div>
+
+          <!-- Phép màu 3 -->
+          <div class="group text-center space-y-5 bg-[#F5F2EB]/25 p-8 rounded-3xl border border-stone-100 hover:border-[#5F7161]/20 transition-all duration-300 hover:shadow-md">
+            <div class="p-4 bg-white shadow-sm inline-block rounded-2xl text-[#5F7161] group-hover:scale-105 transition-transform">
+              <i data-lucide="home" class="w-8 h-8 font-light"></i>
+            </div>
+            <h3 class="text-2xl font-serif text-[#333333] group-hover:text-[#5F7161] transition-colors">Ốc đảo tâm hồn</h3>
+            <p class="text-stone-500 leading-relaxed font-light text-sm">
+              Ý niệm thẩm mỹ thanh thuần mộc mạc đưa căn phòng vào cõi sương thoảng, nơi bạn dứt bỏ lo toan để lắng tai nghe bản thể yên lành.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: INTERACTIVE FABRIC SELECTOR -->
+    <section id="fabric-selector" class="py-24 bg-[#F5F2EB] relative border-y border-stone-200">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
+          <div>
+            <span class="text-[10px] tracking-[0.3em] font-bold uppercase text-[#5F7161] block">Khám phá dệt may</span>
+            <h2 class="text-3xl md:text-5xl font-serif mt-2 text-[#333333] leading-tight">Mỗi Sợi Sơ, Một Giải Cứu</h2>
+          </div>
+          <p class="max-w-md text-stone-600 text-xs md:text-sm font-light leading-relaxed">
+            Nhấp chọn các chất liệu bên dưới để thấu hiểu đặc tính sinh học độc đáo của chúng, và chọn đặt làm vỏ mền mẫu thử chính thức gửi tặng tận bàn tay.
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 items-start">
+          <!-- Left selectors -->
+          <div class="lg:col-span-4 flex flex-col gap-3">
+            <button
+              onclick="selectFabricTab('tencel')"
+              id="btn-tencel"
+              class="w-full p-6 rounded-2xl border text-left transition-all duration-300 flex items-center justify-between cursor-pointer bg-white border-[#5F7161] shadow-md"
+            >
+              <div>
+                <h4 class="font-serif text-lg font-bold">Tencel Bạch Đàn</h4>
+                <span class="text-[10px] text-[#8E8D8A] uppercase tracking-widest font-mono">Cực kỳ dịu mát</span>
+              </div>
+              <i data-lucide="arrow-right" class="w-4 h-4 text-[#5F7161] translate-x-1" id="arrow-tencel"></i>
+            </button>
+
+            <button
+              onclick="selectFabricTab('bamboo')"
+              id="btn-bamboo"
+              class="w-full p-6 rounded-2xl border text-left transition-all duration-300 flex items-center justify-between cursor-pointer bg-white/40 border-stone-200 hover:border-[#5F7161]/55 hover:bg-white"
+            >
+              <div>
+                <h4 class="font-serif text-lg font-bold">Bamboo Thảo Mộc</h4>
+                <span class="text-[10px] text-[#8E8D8A] uppercase tracking-widest font-mono">Kháng khuẩn tự nhiên</span>
+              </div>
+              <i data-lucide="arrow-right" class="w-4 h-4 text-stone-300" id="arrow-bamboo"></i>
+            </button>
+
+            <button
+              onclick="selectFabricTab('modal')"
+              id="btn-modal"
+              class="w-full p-6 rounded-2xl border text-left transition-all duration-300 flex items-center justify-between cursor-pointer bg-white/40 border-stone-200 hover:border-[#5F7161]/55 hover:bg-white"
+            >
+              <div>
+                <h4 class="font-serif text-lg font-bold">Modal Sương Khuya</h4>
+                <span class="text-[10px] text-[#8E8D8A] uppercase tracking-widest font-mono">Căng bóng dẻo dai</span>
+              </div>
+              <i data-lucide="arrow-right" class="w-4 h-4 text-stone-300" id="arrow-modal"></i>
+            </button>
+          </div>
+
+          <!-- Right content display box -->
+          <div class="lg:col-span-8 bg-white border border-stone-200/50 rounded-3xl p-6 md:p-10 shadow-xl grid md:grid-cols-12 gap-8">
+            <div class="md:col-span-12 md:hidden block">
+              <div class="relative w-full aspect-square rounded-2xl overflow-hidden bg-stone-100">
+                <img id="fabric-img-mobile" src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=1000&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="Tencel Ngọc Lan" />
+              </div>
+            </div>
+            
+            <div class="md:col-span-7 flex flex-col justify-between space-y-6">
+              <div>
+                <span id="fabric-source" class="text-[10px] uppercase font-mono tracking-widest text-[#5F7161] block font-bold">
+                  Nguồn gốc: Gỗ Bạch Đàn và Gỗ Sồi tự nhiên
+                </span>
+                <h3 id="fabric-title" class="font-serif text-2xl md:text-3xl font-semibold mt-1 text-[#333333]">
+                  Sợi Tencel Ngọc Lan
+                </h3>
+                <p id="fabric-desc" class="text-stone-600 text-xs md:text-sm font-light leading-relaxed mt-4">
+                  Thừa hưởng đặc tính của sợi gỗ sồi và bạch đàn tự nhiên siêu mịn bồng bềnh, Tencel đem lại cảm giác 'chạm và mướt sảng khoái'. Tự động hạ nhiệt cơ thể, ngăn ẩm mốc tự nhiên để đem lại giấc ngủ sâu an lành suốt đêm dài hanh khô.
+                </p>
+              </div>
+
+              <div class="space-y-3">
+                <span class="text-[9px] uppercase tracking-widest text-[#8E8D8A] block font-bold">Đặc Điểm Sinh Học Vượt Trội:</span>
+                <div id="fabric-features" class="space-y-2">
+                  <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#5F7161] shrink-0"></i><span class="text-xs text-[#333333] font-medium font-sans">Lạnh tức thì khi tiếp xúc da</span></div>
+                  <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#5F7161] shrink-0"></i><span class="text-xs text-[#333333] font-medium font-sans">Thấm hút mồ hôi gấp 1.5 lần cotton</span></div>
+                  <div class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-[#5F7161] shrink-0"></i><span class="text-xs text-[#333333] font-medium font-sans">Phù hợp da siêu nhạy cảm</span></div>
+                </div>
+              </div>
+
+              <div class="pt-4 border-t border-stone-100 flex items-center justify-between gap-4">
+                <div>
+                  <span class="text-[9px] text-[#8E8D8A] block uppercase font-bold">Mẫu thử dệt sẵn</span>
+                  <span class="text-xs text-[#333333] font-medium">Được khuyên dùng cho bạn</span>
+                </div>
+                <button
+                  onclick="selectAndPreFillFabric()"
+                  class="bg-[#5F7161] hover:bg-[#333333] text-white text-[11px] font-bold uppercase tracking-[0.1em] px-5 py-3 rounded-lg transition-colors cursor-pointer"
+                >
+                  Chọn Thử Sợi Này
+                </button>
+              </div>
+            </div>
+
+            <!-- Photo representation (desktop) -->
+            <div class="hidden md:block md:col-span-5 relative rounded-2xl overflow-hidden min-h-[220px] bg-stone-100">
+              <img
+                id="fabric-img"
+                src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=1000&auto=format&fit=crop"
+                class="absolute inset-0 w-full h-full object-cover shadow-inner transition-transform duration-700 hover:scale-105"
+                alt="Sợi Tencel Bạch Đàn"
+              />
+              <div class="absolute top-3 left-3 bg-white/80 backdrop-blur px-2.5 py-1 rounded text-[10px] tracking-widest uppercase font-bold text-[#5F7161]">
+                Dệt hữu cơ sạch
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: AI SLEEP ADVISOR -->
+    <section id="sleep-advisor-section" class="py-24 md:py-32 bg-white relative">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="w-full bg-white rounded-3xl border border-stone-200/60 shadow-xl overflow-hidden">
+          <div class="bg-[#5F7161] p-8 md:p-12 text-white relative overflow-hidden">
+            <!-- decorative circles -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-2xl -mr-16 -mt-16"></div>
+            <div class="absolute -bottom-10 -left-10 w-48 h-48 bg-white/5 rounded-full blur-2xl"></div>
+
+            <div class="relative z-10 max-w-2xl">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-[10px] uppercase tracking-widest font-semibold mb-4 text-[#F5F2EB]">
+                <i data-lucide="sparkles" class="w-3 h-3 text-[#F5F2EB] fill-current"></i> Cố vấn Sinh thái AI
+              </span>
+              <h3 class="text-3xl md:text-4xl font-serif mb-4 leading-tight">Chẩn Đoán Sinh Cảnh Giấc Ngủ</h3>
+              <p class="text-white/80 font-light text-sm md:text-base leading-relaxed">
+                Mỗi con người là một hệ sinh thái riêng biệt. Hãy chia sẻ nỗi khổ, thói quen ngủ hoặc nhiệt độ phòng ngủ của bạn, AI sẽ dệt nên một phân tích tối ưu về chất liệu và phong cách sống Zen dịu mát thư thả nhất.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-8 md:p-12 grid lg:grid-cols-12 gap-12">
+            <!-- input area -->
+            <div class="lg:col-span-5 space-y-6">
+              <div class="space-y-2">
+                <label class="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#333333] block">Tên của bạn</label>
+                <input
+                  type="text"
+                  id="consult-name"
+                  placeholder="Nhập họ tên (không bắt buộc)..."
+                  class="w-full border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#5F7161] focus:ring-1 focus:ring-[#5F7161] transition duration-200 bg-[#F5F2EB]/20 text-[#333333]"
+                />
+              </div>
+
+              <div class="space-y-2">
+                <label class="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#333333] block">Sở thích ngủ / Khó chịu hiện tại</label>
+                <textarea
+                  rows="4"
+                  id="consult-preferences"
+                  placeholder="Mô tả cảm thọ vật lý hoặc môi trường phòng ngủ của bạn (ví dụ: 'Nhà tôi ở phố bụi nóng, tôi hay ra mồ hôi ban đêm, thích chăn mát dịu nhẹ, êm lưng thoáng khí...')"
+                  class="w-full border border-stone-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#5F7161] focus:ring-1 focus:ring-[#5F7161] transition duration-200 bg-[#F5F2EB]/20 text-[#333333] placeholder-stone-400"
+                ></textarea>
+              </div>
+
+              <!-- Quick tags -->
+              <div class="space-y-2.5">
+                <span class="text-[10px] tracking-wider text-[#8E8D8A] uppercase block font-medium">Gợi ý nhanh chủ đề để tư vấn ngay:</span>
+                <div class="flex flex-wrap gap-2">
+                  <button onclick="applyPreset('Phòng hầm bí nóng bức, hay đổ mồ hôi đêm')" class="px-3.5 py-1.5 rounded-full border border-stone-200/80 hover:border-[#5F7161] text-stone-600 hover:text-[#5F7161] text-xs transition bg-white text-left shadow-sm hover:shadow active:translate-y-[1px] cursor-pointer">
+                    Hầm bí mùa hè
+                  </button>
+                  <button onclick="applyPreset('Đau mỏi cột sống, thích nệm nâng đỡ vững chãi thoáng khí ấm áp')" class="px-3.5 py-1.5 rounded-full border border-stone-200/80 hover:border-[#5F7161] text-stone-600 hover:text-[#5F7161] text-xs transition bg-white text-left shadow-sm hover:shadow active:translate-y-[1px] cursor-pointer">
+                    Đau lưng & Bí bách
+                  </button>
+                  <button onclick="applyPreset('Làn da siêu nhạy cảm dễ kích ứng mẩn ngứa, thích vải êm ái cực mềm tơi')" class="px-3.5 py-1.5 rounded-full border border-stone-200/80 hover:border-[#5F7161] text-stone-600 hover:text-[#5F7161] text-xs transition bg-white text-left shadow-sm hover:shadow active:translate-y-[1px] cursor-pointer">
+                    Da nhạy cảm
+                  </button>
+                  <button onclick="applyPreset('Khó vào giấc ngủ, dễ tỉnh giấc nửa đêm, cần không gian thanh tịnh mộc mạc')" class="px-3.5 py-1.5 rounded-full border border-stone-200/80 hover:border-[#5F7161] text-stone-600 hover:text-[#5F7161] text-xs transition bg-white text-left shadow-sm hover:shadow active:translate-y-[1px] cursor-pointer">
+                    Khó ngủ & Tĩnh tâm
+                  </button>
+                </div>
+              </div>
+
+              <div id="consult-error" class="hidden text-xs text-red-600 leading-relaxed bg-red-50 p-2.5 rounded-lg border border-red-100 font-light"></div>
+
+              <button
+                onclick="submitConsultation()"
+                id="consult-btn"
+                class="w-full bg-[#333333] text-white hover:bg-[#5F7161] py-4 px-6 rounded-full text-xs font-semibold uppercase tracking-[0.2em] flex items-center justify-center gap-2 transition-all duration-300 shadow-lg cursor-pointer"
+              >
+                <span>Phân Tích Sinh Cảnh Ngủ</span> <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+
+            <!-- result area -->
+            <div class="lg:col-span-7 flex flex-col justify-center min-h-[300px]">
+              
+              <!-- Loading Card (hidden initially) -->
+              <div id="advisor-loading" class="hidden text-center py-16 space-y-4">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-[#F5F2EB]/65 animate-pulse">
+                  <i data-lucide="moon" class="w-8 h-8 text-[#5F7161] spin-slow"></i>
+                </div>
+                <h5 class="font-serif text-lg text-[#333333] italic">"Đang lắng nghe hơi thở từ sồi già và cỏ dại..."</h5>
+                <p class="text-xs text-[#8E8D8A] font-light max-w-xs mx-auto leading-relaxed">
+                  Các mô hình thuật toán AI đang ghép nối điều kiện sinh cảnh của bạn vào cơ sở dữ liệu sợi thiên nhiên Everon Eco-Sleep.
+                </p>
+              </div>
+
+              <!-- Uninitiated placeholder card -->
+              <div id="advisor-placeholder" class="border border-dashed border-stone-200 rounded-3xl p-12 text-center bg-[#F5F2EB]/10 flex flex-col items-center justify-center space-y-4">
+                <div class="p-4 rounded-full bg-[#5F7161]/5 text-[#5F7161]">
+                  <i data-lucide="compass" class="w-8 h-8 opacity-75"></i>
+                </div>
+                <h5 class="font-serif text-xl font-medium text-[#333333]">Kết Nối Bản Thể</h5>
+                <p class="text-sm text-[#8E8D8A] max-w-md mx-auto leading-relaxed font-light">
+                  Chẩn đoán sinh cảnh của bạn nằm gọn tại bước này. Hãy gõ những khó khăn của phòng ngủ hoặc chọn các thẻ đề xuất bên trái để nhận luận giải độc quyền.
+                </p>
+              </div>
+
+              <!-- Result Card (loaded dynamically) -->
+              <div id="advisor-result" class="hidden p-1 border border-stone-100 rounded-3xl overflow-hidden bg-[#F5F2EB]/10 space-y-6">
+                <!-- Result Inner Card -->
+                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-stone-200/50 space-y-4 relative">
+                  <span id="advisor-demo-badge" class="hidden absolute top-4 right-4 bg-[#F5F2EB] text-[#8E8D8A] text-[9px] px-2 py-0.5 rounded uppercase font-bold tracking-wider">
+                    Demo Mode
+                  </span>
+                  
+                  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                      <span class="text-[9px] font-mono tracking-widest uppercase text-[#5F7161] font-bold">Chẩn đoán dành riêng cho bạn</span>
+                      <h4 id="res-category" class="font-serif text-3xl font-bold text-[#333333] leading-tight my-1">Nhóm Rừng Sương Ban Mai</h4>
+                    </div>
+                    
+                    <!-- Compliance donut -->
+                    <div class="flex items-center gap-3">
+                      <div class="relative w-14 h-14 rounded-full bg-[#F5F2EB] flex items-center justify-center">
+                        <span id="res-match" class="font-serif text-lg font-bold text-[#5F7161]">95%</span>
+                        <svg class="absolute inset-0 w-full h-full -rotate-90">
+                          <circle cx="28" cy="28" r="25" fill="transparent" stroke="#EBE5D8" stroke-width="2.5" />
+                          <circle id="gauge-circle" cx="28" cy="28" r="25" fill="transparent" stroke="#5F7161" stroke-width="2.5" stroke-dasharray="157" stroke-dashoffset="10" />
+                        </svg>
+                      </div>
+                      <div>
+                        <span class="text-[9px] uppercase tracking-wider text-[#8E8D8A] font-bold block">Tỉ Lệ</span>
+                        <span class="text-xs text-[#333333] font-medium">Tương Thích Sinh Cảnh</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="h-[1px] bg-stone-100 w-full"></div>
+
+                  <!-- Fabric matched Suggestion -->
+                  <div class="space-y-2">
+                    <div class="flex items-center gap-2">
+                      <span id="res-fabric" class="text-xs font-bold text-white bg-[#5F7161] px-3 py-1 rounded-full">Tencel</span>
+                      <span class="text-xs font-light text-[#8E8D8A]">Chất liệu cứu tinh tối ưu</span>
+                    </div>
+                    <p id="res-description" class="text-sm font-light text-stone-600 leading-relaxed italic">
+                      "Loại vải siêu mịn mát dệt từ sồi giúp ngăn ẩm và hạ hỏa nóng bức tức thì..."
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Suggested Products and Advice List -->
+                <div class="p-6 md:p-8 space-y-4">
+                  <div class="flex items-start gap-3">
+                    <div class="p-2 rounded-xl bg-[#5F7161]/10 text-[#5F7161]">
+                      <i data-lucide="bookmark" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                      <span class="text-[10px] tracking-widest text-[#8E8D8A] uppercase block font-bold">Tìm Thiết Kế Everon Độc Quyền Phù Hợp:</span>
+                      <h5 id="res-product" class="font-serif text-base font-bold text-[#333333] mt-0.5">Bộ chăn ga Everon Tencel Ngọc Lan</h5>
+                      <p class="text-xs text-[#8E8D8A] font-light leading-relaxed mt-1">
+                        Thiết kế dệt sợi hữu cơ cho làn da được thông hít tự do, rũ bỏ âu bám vi tạp chất của chăn nệm thông thường.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Advice checklist -->
+                  <div class="space-y-2 pt-2 border-t border-stone-200/50">
+                    <span class="text-[10px] tracking-widest text-[#8E8D8A] uppercase block font-bold">3 Lời khuyên thiết dưỡng không gian:</span>
+                    <div id="res-advice-container" class="space-y-2">
+                      <!-- elements generated dynamic -->
+                    </div>
+                  </div>
+
+                  <!-- Zen blessing sentence -->
+                  <div class="pt-4 border-t border-stone-200/50 text-center">
+                    <p id="res-blessing" class="text-xs italic text-[#5F7161] font-medium tracking-wide">
+                      "Nguyện cho gió lành rải đều mi mắt rũ mệt."
+                    </p>
+                  </div>
+                  
+                  <div class="text-right">
+                    <a
+                      href="#register"
+                      onclick="prefillConsultToForm()"
+                      class="inline-flex items-center gap-1 text-[11px] uppercase tracking-widest font-bold text-[#5F7161] hover:text-[#333333] transition-colors pt-2 cursor-pointer"
+                    >
+                      Đăng Ký Nhận Mẫu Thử Sợi Này <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: SOUNDSCAPES CONTROLLER -->
+    <section id="soundscapes" class="py-24 bg-[#F5F2EB] relative border-t border-stone-200">
+      <div class="absolute top-1/2 left-12 w-64 h-64 bg-[#5F7161]/5 rounded-full blur-2xl pointer-events-none"></div>
+
+      <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
+        <!-- Text intro -->
+        <div class="lg:col-span-7 space-y-6">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#5F7161]/10 text-[#5F7161] text-[10px] uppercase tracking-widest font-bold">
+            <i data-lucide="volume-2" class="w-3.5 h-3.5"></i> Liệu pháp thính giác sinh học
+          </span>
+          <h2 class="text-3xl md:text-5xl font-serif text-[#333333] leading-tight">
+            Lọc Sạch Ồn Ả, <br />
+            Nghe Thảo Mộc Rì Rầm
+          </h2>
+          <p class="text-stone-600 text-sm md:text-base font-light leading-relaxed">
+            Trình duyệt của bạn sẽ biến thành một bộ mô phỏng tần số chữa lành của cỏ dại Tây Bắc. Sử dụng bộ trộn âm lượng (dựa trên Web Audio API tổng hợp trực tiếp), bạn có thể xếp chồng tiếng mưa thảo mộc mềm rụng hoặc gió cao nguyên rì rầm theo ý thích để thư thái óc não ngủ một giấc vẹn nguyên.
+          </p>
+          <div class="p-4 bg-white/60 border border-stone-200/50 rounded-2xl flex items-center gap-3 max-w-md">
+            <i data-lucide="compass" class="w-5 h-5 text-[#5F7161] shrink-0"></i>
+            <p class="text-xs text-[#8E8D8A] font-light">
+              <strong>Gợi ý thiền:</strong> Bật sừng sững tiếng Gió Cao Nguyên ở mức 30%, kèm theo Mưa Thảo Mộc rả rích 60% để giải tỏa dứt điểm mệt mỏi trong 10 phút.
+            </p>
+          </div>
+        </div>
+
+        <!-- Synthesizer sound widget controller -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="p-6 md:p-8 rounded-3xl border border-stone-200/60 bg-white shadow-xl max-w-sm w-full">
+            <div class="flex items-center justify-between mb-4">
+              <div>
+                <span class="text-[10px] tracking-widest text-[#8E8D8A] uppercase font-bold">Thính Giác</span>
+                <h4 class="text-lg font-serif font-medium text-[#333333] leading-tight">Mô Phỏng Tổng Hợp</h4>
+              </div>
+              <button
+                onclick="toggleMasterVolume()"
+                id="master-mute-btn"
+                class="p-2.5 rounded-full border border-stone-200/50 hover:border-[#5F7161] text-[#8E8D8A] hover:text-[#5F7161] transition-all cursor-pointer"
+                title="Tắt/Mở toàn bộ âm thanh"
+              >
+                <i data-lucide="volume-2" id="master-mute-icon" class="w-4 h-4"></i>
+              </button>
+            </div>
+
+            <!-- Hint for chrome autoplay block -->
+            <p id="audio-click-notification" class="text-[10.5px] text-amber-800 bg-amber-50 rounded-xl p-3 mb-4 leading-relaxed font-light border border-amber-200/50 flex gap-2">
+              <i data-lucide="sparkles" class="w-4 h-4 shrink-0 text-amber-700"></i>
+              <span>Trình duyệt chặn nhạc tự động. Bấm 'Phát' bên dưới để kích hoạt dải sóng sinh học tự nhiên.</span>
+            </p>
+
+            <!-- Sound tracks mixer -->
+            <div class="space-y-4">
+              
+              <!-- Track 1: Rain -->
+              <div class="p-3.5 bg-[#F5F2EB]/40 hover:bg-[#F5F2EB]/70 rounded-xl border border-stone-100/50 transition-all flex flex-col gap-2">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="p-2 rounded-xl bg-white shadow-sm text-[#5F7161]">
+                      <i data-lucide="cloud-rain" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                      <h5 class="font-serif text-sm font-medium text-[#333333]">Mưa Thảo Mộc</h5>
+                      <span class="text-[9px] font-mono text-[#8E8D8A] uppercase tracking-wide">Grass Rain</span>
+                    </div>
+                  </div>
+
+                  <button
+                    onclick="toggleTrack('rain')"
+                    id="track-btn-rain"
+                    class="p-2 rounded-full cursor-pointer transition-all duration-300 bg-white text-[#5F7161] border border-stone-200 hover:border-[#5F7161]"
+                    title="Phát"
+                  >
+                    <i data-lucide="play" id="track-icon-rain" class="w-3.5 h-3.5 fill-current"></i>
+                  </button>
+                </div>
+
+                <div id="volume-container-rain" class="hidden flex items-center gap-2 mt-1">
+                  <i data-lucide="volume-x" class="w-3 h-3 text-[#8E8D8A]"></i>
+                  <input
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.05"
+                    value="0.5"
+                    oninput="adjustTrackVolume('rain', this.value)"
+                    class="w-full h-1 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#5F7161]"
+                  />
+                  <i data-lucide="volume-2" class="w-3 h-3 text-[#5F7161]"></i>
+                </div>
+              </div>
+
+              <!-- Track 2: Wind -->
+              <div class="p-3.5 bg-[#F5F2EB]/40 hover:bg-[#F5F2EB]/70 rounded-xl border border-stone-100/50 transition-all flex flex-col gap-2">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="p-2 rounded-xl bg-white shadow-sm text-[#5F7161]">
+                      <i data-lucide="wind" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                      <h5 class="font-serif text-sm font-medium text-[#333333]">Gió Cao Nguyên</h5>
+                      <span class="text-[9px] font-mono text-[#8E8D8A] uppercase tracking-wide">Forest Breeze</span>
+                    </div>
+                  </div>
+
+                  <button
+                    onclick="toggleTrack('wind')"
+                    id="track-btn-wind"
+                    class="p-2 rounded-full cursor-pointer transition-all duration-300 bg-white text-[#5F7161] border border-stone-200 hover:border-[#5F7161]"
+                    title="Phát"
+                  >
+                    <i data-lucide="play" id="track-icon-wind" class="w-3.5 h-3.5 fill-current"></i>
+                  </button>
+                </div>
+
+                <div id="volume-container-wind" class="hidden flex items-center gap-2 mt-1">
+                  <i data-lucide="volume-x" class="w-3 h-3 text-[#8E8D8A]"></i>
+                  <input
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.05"
+                    value="0.4"
+                    oninput="adjustTrackVolume('wind', this.value)"
+                    class="w-full h-1 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#5F7161]"
+                  />
+                  <i data-lucide="volume-2" class="w-3 h-3 text-[#5F7161]"></i>
+                </div>
+              </div>
+
+              <!-- Track 3: Sea Wave -->
+              <div class="p-3.5 bg-[#F5F2EB]/40 hover:bg-[#F5F2EB]/70 rounded-xl border border-stone-100/50 transition-all flex flex-col gap-2">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="p-2 rounded-xl bg-white shadow-sm text-[#5F7161]">
+                      <i data-lucide="waves" class="w-4 h-4"></i>
+                    </div>
+                    <div>
+                      <h5 class="font-serif text-sm font-medium text-[#333333]">Sóng Thải Trào</h5>
+                      <span class="text-[9px] font-mono text-[#8E8D8A] uppercase tracking-wide">Zen Ocean</span>
+                    </div>
+                  </div>
+
+                  <button
+                    onclick="toggleTrack('sea')"
+                    id="track-btn-sea"
+                    class="p-2 rounded-full cursor-pointer transition-all duration-300 bg-white text-[#5F7161] border border-stone-200 hover:border-[#5F7161]"
+                    title="Phát"
+                  >
+                    <i data-lucide="play" id="track-icon-sea" class="w-3.5 h-3.5 fill-current"></i>
+                  </button>
+                </div>
+
+                <div id="volume-container-sea" class="hidden flex items-center gap-2 mt-1">
+                  <i data-lucide="volume-x" class="w-3 h-3 text-[#8E8D8A]"></i>
+                  <input
+                    type="range"
+                    min="0"
+                    max="1"
+                    step="0.05"
+                    value="0.3"
+                    oninput="adjustTrackVolume('sea', this.value)"
+                    class="w-full h-1 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-[#5F7161]"
+                  />
+                  <i data-lucide="volume-2" class="w-3 h-3 text-[#5F7161]"></i>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="mt-4 pt-4 border-t border-stone-100">
+              <div class="flex items-center justify-between text-[10px] text-[#8E8D8A]">
+                <span class="font-light italic">Tạo tiếng ồn trắng sinh học xoa dịu thần kinh</span>
+                <span class="font-mono uppercase px-1.5 py-0.5 rounded bg-[#F5F2EB] font-bold">Web Audio Synthesis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: THE TREE GARDEN FOREST & SOCIAL COMMUNITY FEED -->
+    <section id="tree-garden" class="py-24 md:py-32 bg-white relative overflow-hidden text-center">
+      <div class="absolute top-10 right-10 w-48 h-48 bg-emerald-50 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-4xl mx-auto px-6 space-y-8">
+        <span class="text-[10px] tracking-[0.3em] font-bold uppercase text-[#5F7161] block">Ý Tưởng Nhân Văn</span>
+        <h2 class="text-3xl md:text-5xl font-serif text-[#333333] leading-tight">Một Tấm Chăn, Một Mầm Xanh</h2>
+        <p class="max-w-2xl mx-auto text-stone-500 font-light text-sm md:text-base leading-relaxed">
+          Chúng tôi không chỉ chăm nom giấc ngủ của bạn, mà còn gánh vác tương lai của rừng gỗ dồi lát Tây Bắc. Mỗi câu chia sẻ giấc ngủ sâu của bạn bên dưới với hashtag <span class="font-bold">#EveronEcoSleep</span> sẽ là một mầm xanh thiết thực được bổ túc gán tên bạn vào ngân hàng cây phủ xanh Hòa Bình.
+        </p>
+
+        <!-- Tree count display gauge -->
+        <div id="tree-gauge-container" class="inline-flex flex-col md:flex-row items-center gap-6 bg-[#F5F2EB]/65 border border-stone-200/60 shadow-md p-6 px-12 py-6 rounded-3xl transition-transform duration-500">
+          <div class="p-3.5 rounded-2xl bg-white shadow-sm text-[#5F7161]">
+            <i data-lucide="tree-pine" class="w-8 h-8"></i>
+          </div>
+          <div class="text-left space-y-1">
+            <span class="text-[10px] uppercase font-mono tracking-widest text-[#8E8D8A] font-bold">Tổng mầm lim sồi đã gieo trồng:</span>
+            <div class="flex items-baseline gap-2">
+              <span id="planted-trees-count" class="text-3xl md:text-4xl font-serif font-black text-[#5F7161]">1428</span>
+              <span class="text-xs text-[#333333] font-semibold">Cánh Rừng Sự Sống</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 items-start pt-10 text-left">
+          <!-- Post story form -->
+          <div class="lg:col-span-5 bg-[#F5F2EB]/30 p-6 md:p-8 rounded-3xl border border-stone-100 shadow-inner space-y-4">
+            <h4 class="font-serif text-lg font-bold">Viết Nên Giấc Mộng Lành</h4>
+            <p class="text-xs text-[#8E8D8A] font-light leading-relaxed">
+              Ký thác chia sẻ của bạn vào bức tường sinh vật này, mầm non lim gỗ quý tại Hòa Bình sẽ lập tức tạc tên bạn và thúc đẩy ngân hàng rừng chung tăng trưởng!
+            </p>
+
+            <form onsubmit="handlePlantAndPost(event)" class="space-y-4 pt-2">
+              <div>
+                <input
+                  type="text"
+                  required
+                  id="story-author"
+                  placeholder="Họ tên hoặc biệt hiệu thanh mộc..."
+                  class="w-full bg-white border border-stone-200 rounded-xl px-4 py-2.5 text-xs font-medium focus:ring-1 focus:ring-[#5F7161] focus:outline-none"
+                />
+              </div>
+              
+              <div>
+                <textarea
+                  rows="4"
+                  required
+                  maxLength="300"
+                  id="story-text"
+                  placeholder="Chia sẻ niềm hoan hỉ thảnh thơi mà bạn có khi trút đi lo âu bụi đường sau lưng vào tấm nệm xanh chiếc mền thơm..."
+                  class="w-full bg-white border border-stone-200 rounded-xl p-4 text-xs focus:ring-1 focus:ring-[#5F7161] focus:outline-none"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-[#5F7161] hover:bg-[#333333] text-white text-[11px] font-bold uppercase tracking-widest py-3 rounded-full transition-colors cursor-pointer flex items-center justify-center gap-1.5 shadow"
+              >
+                Gieo Trồng & Đăng Đàn <i data-lucide="leaf" class="w-3.5 h-3.5 fill-current"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- Feed logs list -->
+          <div class="lg:col-span-7 space-y-4 max-h-[460px] overflow-y-auto pr-1" id="social-feed-list">
+            <!-- socially updated items -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: VOUCHER FORM (REGISTER & CONVERSION) -->
+    <section id="register" class="py-24 md:py-32 bg-[#F5F2EB] relative border-y border-stone-200">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="bg-white rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row border border-stone-200/50">
+          
+          <!-- Decorative image banner -->
+          <div class="md:w-5/12 bg-[#5F7161]/25 relative min-h-[300px] md:min-h-auto">
+            <img
+              src="https://images.unsplash.com/photo-1520333781090-e2ad16bc8e91?q=80&w=2070&auto=format&fit=crop"
+              class="absolute inset-0 w-full h-full object-cover mix-blend-multiply opacity-50"
+              alt="Everon Eco-Sleep Decor"
+            />
+            <div class="absolute inset-0 p-8 flex flex-col justify-between text-white z-10 bg-gradient-to-t from-black/50 via-transparent to-black/10">
+              <span class="inline-block self-start text-[9px] uppercase tracking-widest bg-white/20 backdrop-blur px-2.5 py-1 rounded-full">
+                Mẫu Thử Vật Lý - Giao Tận Nhà
+              </span>
+              
+              <div>
+                <p class="font-serif text-2xl italic leading-snug">"Thiên nhiên vỗ về giấc ngủ sâu."</p>
+                <p class="text-[10px] font-sans font-light mt-1 text-white/80">Nhận hộp vải bông mẫu thử gỗ sồi bạch đàn mát mướt sướng da.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form area card body -->
+          <div class="md:w-7/12 p-8 md:p-12 relative">
+            
+            <!-- FORM ACTIVE STATE -->
+            <div id="lead-form-area" class="space-y-6">
+              <div>
+                <h2 class="text-2xl font-serif text-[#333333] uppercase tracking-normal">Chạm Để Thấu Hiểu</h2>
+                <p class="text-stone-400 text-xs mt-1.5 font-light italic">
+                  Đăng ký nhận trực tiếp mẫu thử các loại dệt thô sinh học tại dinh thự và mã code ưu đãi 20% áp dụng toàn hệ thống showroom.
+                </p>
+              </div>
+
+              <form onsubmit="handleLeadSubmitForm(event)" class="space-y-5">
+                <div class="space-y-1">
+                  <label class="text-[10px] uppercase tracking-wider text-[#8E8D8A] font-bold block">Danh tính của bạn (Hạng và Tên)</label>
+                  <input
+                    type="text"
+                    required
+                    id="lead-name"
+                    placeholder="Nguyễn Văn A..."
+                    class="w-full border-b border-stone-250 py-2 text-sm focus:outline-none focus:border-[#5F7161] bg-transparent text-[#333333] transition"
+                  />
+                </div>
+
+                <div class="space-y-1">
+                  <label class="text-[10px] uppercase tracking-wider text-[#8E8D8A] font-bold block">Hình thức Liên Hệ (SĐT hoặc Email)</label>
+                  <input
+                    type="text"
+                    required
+                    id="lead-contact"
+                    placeholder="Để bưu tá ship bưu phẩm..."
+                    class="w-full border-b border-stone-250 py-2 text-sm focus:outline-none focus:border-[#5F7161] bg-transparent text-[#333333] transition"
+                  />
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 pt-1">
+                  <div class="space-y-1.5">
+                    <label class="text-[9px] uppercase tracking-wider text-[#8E8D8A] block font-bold">Thử nghiệm đặc biệt muốn chuộng:</label>
+                    <select
+                      id="lead-fabric-select"
+                      class="w-full bg-white border border-stone-200 rounded-lg p-2 text-xs focus:ring-1 focus:ring-[#5F7161]"
+                    >
+                      <option value="Sợi Tencel Bạch Đàn">Tencel Ngọc Lan (Cực kỳ mát mịn)</option>
+                      <option value="Sợi Bamboo Thảo Mộc">Bamboo Thảo Mộc (Kháng khuẩn bảo vệ)</option>
+                      <option value="Sợi Modal Sương Khuya">Modal Sương Khuya (Căng bóng dẻo dai)</option>
+                    </select>
+                  </div>
+
+                  <div class="space-y-1.5">
+                    <label class="text-[9px] uppercase tracking-wider text-[#8E8D8A] block font-bold">Cân bằng nệm yêu thích:</label>
+                    <select
+                      id="lead-mattress-select"
+                      class="w-full bg-white border border-stone-200 rounded-lg p-2 text-xs focus:ring-1 focus:ring-[#5F7161]"
+                    >
+                      <option>Mềm mại, bồng bềnh tựa mây trôi</option>
+                      <option>Vững chãi, giảm mệt nhấc mỏi gáy</option>
+                      <option>Nệm cứng thô mát, thoáng đối lưng</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full bg-[#5F7161] hover:bg-[#333333] text-white py-4 rounded-full text-[10px] font-bold uppercase tracking-[0.25em] transition shadow-lg inline-block cursor-pointer"
+                >
+                  Gửi Tôi Bản Thử & Voucher Ngay
+                </button>
+
+                <div class="flex justify-center items-center gap-1.5 text-[9px] text-[#8E8D8A]">
+                  <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+                  <span>Thông tin an ninh được mã hóa khép kín dệt tự nhiên theo chuẩn Everon.</span>
+                </div>
+              </form>
+            </div>
+
+            <!-- SUCCESS COUPON VOUCHER SCREEN (hidden initially) -->
+            <div id="lead-success-area" class="hidden space-y-6 text-center py-6 animate-fade-in">
+              <div class="w-16 h-16 rounded-full bg-emerald-50 text-[#5F7161] flex items-center justify-center mx-auto border border-emerald-100 shadow-sm">
+                <i data-lucide="gift" class="w-8 h-8"></i>
+              </div>
+
+              <div class="space-y-2">
+                <h3 class="font-serif text-3xl font-bold text-[#333333]">Liên Minh Xanh Kết Nạp!</h3>
+                <p class="text-stone-500 font-light text-xs max-w-sm mx-auto leading-relaxed">
+                  Gói bưu phẩm xúc giác sợi mộc <strong id="succ-subm-fabric">Tencel</strong> sinh thái đang bắt đầu được đóng dập gửi tới SĐT/Email <strong id="succ-subm-contact">SĐT</strong> đại diện cho <strong id="succ-subm-name">Tên</strong>.
+                </p>
+              </div>
+
+              <!-- Pass stub -->
+              <div class="bg-[#F5F2EB]/60 p-6 rounded-2xl border border-dashed border-[#5F7161]/50 max-w-xs mx-auto space-y-3 relative overflow-hidden">
+                <div class="absolute top-1/2 -left-3 w-6 h-6 bg-white rounded-full -translate-y-1/2"></div>
+                <div class="absolute top-1/2 -right-3 w-6 h-6 bg-white rounded-full -translate-y-1/2"></div>
+
+                <span class="text-[9px] font-mono tracking-widest text-[#8E8D8A] uppercase block font-bold">MÃ GIẢM GIÁ 20% THÀNH VIÊN:</span>
+                <div id="succ-voucher-code" class="font-serif text-2xl font-black text-[#333333] tracking-widest">ECO-VOUCH-7431</div>
+                
+                <button
+                  onclick="copyVoucherCode()"
+                  class="inline-flex items-center gap-1 px-4 py-1.5 rounded bg-white hover:bg-stone-100 border border-stone-200 text-xs text-[#333333] font-medium shadow-sm transition active:scale-95 cursor-pointer"
+                >
+                  <span id="copy-btn-text">Sao chép mã voucher</span>
+                </button>
+              </div>
+
+              <p class="text-[10px] text-[#8E8D8A] leading-relaxed max-w-md mx-auto">
+                *Bạn hãy mang mã ưu đãi đặc biệt này trình diện tại hệ thống Showroom Everon để được giảm giá trực tiếp 20% khi mua dòng sản phẩm sinh thái Eco-Sleep.
+              </p>
+
+              <button
+                onclick="resetLeadForm()"
+                class="text-xs text-[#5F7161] hover:text-[#333333] underline cursor-pointer"
+              >
+                Đăng ký mâm thử cho người thân thứ hai
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: FAQ ACCORDION -->
+    <section id="faqs" class="py-24 bg-white relative">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center space-y-3 mb-16">
+          <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-[#5F7161] block font-sans">Giải Đáp Thấu Đáo</span>
+          <h2 class="text-3xl md:text-5xl font-serif text-[#333333]">Hỏi đáp về dệt may hữu cơ</h2>
+          <p class="text-stone-500 font-light text-sm max-w-lg mx-auto leading-relaxed">
+            Kiến thức để bảo vệ sinh quyển phòng ngủ của bạn và đồng cảm với triết lý Everon Eco-Sleep.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Accordion 1 -->
+          <div class="border border-stone-200 rounded-2xl overflow-hidden bg-[#F5F2EB]/15 hover:bg-white transition-all">
+            <button
+              onclick="toggleFaqAccordion(0)"
+              class="w-full p-6 text-left flex justify-between items-center gap-4 cursor-pointer"
+            >
+              <h4 class="font-serif text-base md:text-lg font-bold text-[#333333]">
+                Sợi vải sinh học Eco-Sleep khác biệt gì so với cotton hay nilon tổng hợp?
+              </h4>
+              <i data-lucide="chevron-down" id="faq-chevron-0" class="w-5 h-5 text-[#8E8D8A] transition-transform duration-300"></i>
+            </button>
+            <div id="faq-body-0" class="px-6 pb-6 text-xs md:text-sm text-stone-600 font-light leading-relaxed max-h-0 overflow-hidden transition-all duration-300">
+              Điểm mấu chốt là quy trình tách chiết xenluloz gỗ sồi tự nhiên tuần hoàn khép kín. Ví dụ sợi vải Tencel sử dụng nước ít hơn 20 lần so với cây bông hữu cơ cotton, tuyệt nhiên không hóa chất nông sản phân bón học. Hơn nữa, thớ dệt mang lỗ rỗng vi mô hạ ngay tức thì nhiệt phòng nóng bức thoát mồ hôi sâu thay vì ủ đọng tạo ổ vi khuẩn như ga phi bóng, dệt nilon tổng hợp thông dụng.
+            </div>
+          </div>
+
+          <!-- Accordion 2 -->
+          <div class="border border-stone-200 rounded-2xl overflow-hidden bg-[#F5F2EB]/15 hover:bg-white transition-all">
+            <button
+              onclick="toggleFaqAccordion(1)"
+              class="w-full p-6 text-left flex justify-between items-center gap-4 cursor-pointer"
+            >
+              <h4 class="font-serif text-base md:text-lg font-bold text-[#333333]">
+                Bảo dưỡng và giặt phơi chăn gối Everon Eco-Sleep ra sao để giữ phom óng mượt?
+              </h4>
+              <i data-lucide="chevron-down" id="faq-chevron-1" class="w-5 h-5 text-[#8E8D8A] transition-transform duration-300"></i>
+            </button>
+            <div id="faq-body-1" class="px-6 pb-6 text-xs md:text-sm text-stone-600 font-light leading-relaxed max-h-0 overflow-hidden transition-all duration-300">
+              Cực kỳ thảnh thơi nhờ thớ sợi dai chắc từ tre của Bamboo hoặc mộc Modal. Bạn giặt máy bình thường ở chế độ giặt lụa nhẹ, chất tẩy trung tính vừa vặn và phơi dưới hiên lộng gió tự nhiên là đủ. Màng sợi xốp sinh học khô cực kỳ nhanh mà không bao giờ xù xước co rút sập chỉ.
+            </div>
+          </div>
+
+          <!-- Accordion 3 -->
+          <div class="border border-stone-200 rounded-2xl overflow-hidden bg-[#F5F2EB]/15 hover:bg-white transition-all">
+            <button
+              onclick="toggleFaqAccordion(2)"
+              class="w-full p-6 text-left flex justify-between items-center gap-4 cursor-pointer"
+            >
+              <h4 class="font-serif text-base md:text-lg font-bold text-[#333333]">
+                Chương trình liên minh gieo hạt '#EveronEcoSleep' hoạt động như thế nào?
+              </h4>
+              <i data-lucide="chevron-down" id="faq-chevron-2" class="w-5 h-5 text-[#8E8D8A] transition-transform duration-300"></i>
+            </button>
+            <div id="faq-body-2" class="px-6 pb-6 text-xs md:text-sm text-stone-600 font-light leading-relaxed max-h-0 overflow-hidden transition-all duration-300">
+              Với ước vọng phủ một thảm lục địa xanh bảo vệ miền sương núi Tây Bắc, Everon ký kết trích hạch một mầm cây Lim, Sồi thật dệt trực tiếp từ ngân sách Hòa Bình cho mỗi chia sẻ câu chuyện ngủ sâu dạt dào cảm hứng. Bạn ngủ yên, rừng bừng tỉnh. Giấc mê lành của thế hệ này chở che bóng mát của đời sau.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-16 bg-white text-center border-t border-stone-100">
+      <div class="max-w-6xl mx-auto px-6 space-y-4">
+        <p class="text-[10px] text-[#8E8D8A] tracking-[0.4em] uppercase">&copy; 2026 EVERON VIETNAM. Mang Thiên Nhiên Thực Vào Giấc Ngủ Bản Thể.</p>
+        <span class="text-[9px] font-mono text-[#8E8D8A]/70 uppercase">Văn phòng chính hãng Everon - Thiết kế bảo vệ đa dạng sinh học phòng thiền</span>
+      </div>
+    </footer>
+
+
+    <!-- JAVASCRIPT MASTERLOGIC CONTROL -->
+    <script type="text/javascript">
+      
+      // Init lucide icons
+      document.addEventListener("DOMContentLoaded", function() {
+        lucide.createIcons();
+        renderSocialFeed();
+        // pre-open first faq
+        toggleFaqAccordion(0);
+      });
+
+      // MOBILE MENU
+      function toggleMobileMenu() {
+        const panel = document.getElementById("mobile-menu");
+        const icon = document.getElementById("hamburger-icon");
+        if (panel.classList.contains("hidden")) {
+          panel.classList.remove("hidden");
+          icon.setAttribute("data-lucide", "x");
+        } else {
+          panel.classList.add("hidden");
+          icon.setAttribute("data-lucide", "menu");
+        }
+        lucide.createIcons();
+      }
+
+      // INTERACTIVE FABRIC TAB
+      const fabricDb = {
+        tencel: {
+          title: "Sợi Tencel Ngọc Lan",
+          source: "Nguồn gốc: Gỗ Bạch Đàn và Gỗ Sồi tự nhiên",
+          desc: "Thừa hưởng đặc tính của sợi gỗ sồi và bạch đàn tự nhiên siêu mịn bồng bềnh, Tencel đem lại cảm giác 'chạm và mướt sảng khoái'. Tự động hạ nhiệt cơ thể, ngăn ẩm mốc tự nhiên để đem lại giấc ngủ sâu an lành suốt đêm dài hanh khô.",
+          features: [
+            "Lạnh tức thì khi tiếp xúc da",
+            "Thấm hút mồ hôi gấp 1.5 lần cotton",
+            "Phù hợp da siêu nhạy cảm bảo vệ"
+          ],
+          image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=1000&auto=format&fit=crop"
+        },
+        bamboo: {
+          title: "Sợi Bamboo Thảo Mộc",
+          source: "Nguồn gốc: Xơ Tre non kháng khuẩn thiên nhiên",
+          desc: "Giữ trọn vẹn thớ diệt ô thoáng tự vệ rỗng của cây tre già mộc. Bamboo khử mùi tự nhiên cực mạnh, triệt nấm mốc dị sinh bám dính, đem lại một bầu không dưỡng khí sạch tơi cho bé măng nhỏ và ông bà dưỡng mệt gáy.",
+          features: [
+            "Kháng lọc mùi tự sinh dạt dào",
+            "Thớ dệt rỗng đối lưu không khí siêu lý tưởng",
+            "Ngăn tia cực tím bảo hộ giấc ban trưa"
+          ],
+          image: "https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=1000&auto=format&fit=crop"
+        },
+        modal: {
+          title: "Sợi Modal Sương Khuya",
+          source: "Nguồn gốc: Xenlulose gỗ cây Sồi Châu Âu cổ thụ",
+          desc: "Sồi già đồi cao ban tặng những thớ cellulose dai dột dính, dệt nên những mảnh ga bóng mịn vượt trội. Modal chịu lực ma sát lồng giặt xuất sắc, ôm màng da mướt như tơ lụa mà không hề sờn xước, bay tơ chỉ suốt năm tháng.",
+          features: [
+            "Độ bền mài bền bỉ qua hàng trăm lượt giặt máy",
+            "Mượt óng ả nguyên thủy thanh tao",
+            "Mềm rũ ôm khít nương giấc sâu xơ cứng cơ"
+          ],
+          image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1000&auto=format&fit=crop"
+        }
+      };
+
+      let activeFabricId = 'tencel';
+
+      function selectFabricTab(id) {
+        activeFabricId = id;
+        
+        // Reset buttons CSS classes
+        ['tencel', 'bamboo', 'modal'].forEach(fibId => {
+          const btn = document.getElementById("btn-" + fibId);
+          const arrow = document.getElementById("arrow-" + fibId);
+          if (fibId === id) {
+            btn.classList.remove("bg-white/40", "border-stone-200", "hover:border-[#5F7161]/55", "hover:bg-white");
+            btn.classList.add("bg-white", "border-[#5F7161]", "shadow-md");
+            arrow.classList.remove("text-stone-300");
+            arrow.classList.add("text-[#5F7161]", "translate-x-1");
+          } else {
+            btn.classList.remove("bg-white", "border-[#5F7161]", "shadow-md");
+            btn.classList.add("bg-white/40", "border-stone-200", "hover:border-[#5F7161]/55", "hover:bg-white");
+            arrow.classList.remove("text-[#5F7161]", "translate-x-1");
+            arrow.classList.add("text-stone-300");
+          }
+        });
+
+        // Set right displays content
+        const entry = fabricDb[id];
+        document.getElementById("fabric-title").innerText = entry.title;
+        document.getElementById("fabric-source").innerText = entry.source;
+        document.getElementById("fabric-desc").innerText = entry.desc;
+        document.getElementById("fabric-img").src = entry.image;
+        document.getElementById("fabric-img-mobile").src = entry.image;
+
+        // Features map rewrite
+        const featCont = document.getElementById("fabric-features");
+        featCont.innerHTML = "";
+        entry.features.forEach(feat => {
+          featCont.innerHTML += `
+            <div class="flex items-center gap-2">
+              <i data-lucide="check-circle" class="w-4 h-4 text-[#5F7161] shrink-0"></i>
+              <span class="text-xs text-[#333333] font-medium font-sans">${feat}</span>
+            </div>
+          `;
+        });
+
+        lucide.createIcons();
+      }
+
+      function selectAndPreFillFabric() {
+        const item = fabricDb[activeFabricId];
+        const selector = document.getElementById("lead-fabric-select");
+        
+        // Match selection option value
+        if (activeFabricId === 'tencel') {
+          selector.value = "Sợi Tencel Bạch Đàn";
+        } else if (activeFabricId === 'bamboo') {
+          selector.value = "Sợi Bamboo Thảo Mộc";
+        } else {
+          selector.value = "Sợi Modal Sương Khuya";
+        }
+
+        // feedback and jump
+        const registerSect = document.getElementById("register");
+        registerSect.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      // AI SLEEP ADVISOR LOGIC
+      function applyPreset(text) {
+        document.getElementById("consult-preferences").value = text;
+        submitConsultation();
+      }
+
+      async function submitConsultation() {
+        const nameInput = document.getElementById("consult-name").value;
+        const prefInput = document.getElementById("consult-preferences").value;
+        const errDiv = document.getElementById("consult-error");
+
+        if (!prefInput.trim()) {
+          errDiv.innerText = "Hỡi bạn, hãy cung cấp tâm tình phòng ngủ của mình bên trên trước nhé!";
+          errDiv.classList.remove("hidden");
+          return;
+        }
+
+        errDiv.classList.add("hidden");
+
+        // Hide old states and show loading
+        document.getElementById("advisor-placeholder").classList.add("hidden");
+        document.getElementById("advisor-result").classList.add("hidden");
+        document.getElementById("advisor-loading").classList.remove("hidden");
+
+        try {
+          const response = await fetch("/api/consult", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              name: nameInput || "Quý khách",
+              preferences: prefInput
+            })
+          });
+
+          const resJson = await response.json();
+          if (resJson && resJson.success && resJson.data) {
+            const data = resJson.data;
+            
+            // Set values
+            document.getElementById("res-category").innerText = data.categoryName;
+            document.getElementById("res-match").innerText = data.matchPercent + "%";
+            document.getElementById("res-fabric").innerText = data.fabricMatched;
+            document.getElementById("res-description").innerText = `"${data.fabricDescription}"`;
+            document.getElementById("res-product").innerText = data.productSuggestion;
+            document.getElementById("res-blessing").innerText = `"${data.zenBlessing}"`;
+
+            // Gauge SVG circle update
+            const circle = document.getElementById("gauge-circle");
+            const r = 25;
+            const circum = 2 * Math.PI * r;
+            circle.style.strokeDasharray = circum;
+            const offset = circum * (1 - data.matchPercent / 100);
+            circle.style.strokeDashoffset = offset;
+
+            // Advice checklist mapping
+            const advCont = document.getElementById("res-advice-container");
+            advCont.innerHTML = "";
+            data.advice.forEach(ad => {
+              advCont.innerHTML += `
+                <div class="flex items-start gap-2.5">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-[#5F7161] mt-0.5 shrink-0"></i>
+                  <p class="text-xs text-stone-600 font-light leading-relaxed">${ad}</p>
+                </div>
+              `;
+            });
+
+            // Demo badge
+            const demoBadge = document.getElementById("advisor-demo-badge");
+            if (data.isDemo) {
+              demoBadge.classList.remove("hidden");
+            } else {
+              demoBadge.classList.add("hidden");
+            }
+
+            // Reveal result
+            document.getElementById("advisor-loading").classList.add("hidden");
+            document.getElementById("advisor-result").classList.remove("hidden");
+            lucide.createIcons();
+
+          } else {
+            throw new Error("Invalid output content");
+          }
+        } catch (err) {
+          console.error(err);
+          errDiv.innerText = "Có lỗi ngắt tuyến kết nối AI. Mở chế độ dệt mẫu phòng vệ.";
+          errDiv.classList.remove("hidden");
+
+          // Display default backup
+          document.getElementById("advisor-loading").classList.add("hidden");
+          document.getElementById("advisor-placeholder").classList.remove("hidden");
+        }
+      }
+
+      function prefillConsultToForm() {
+        const matched = document.getElementById("res-fabric").innerText;
+        const selector = document.getElementById("lead-fabric-select");
+        
+        if (matched.toLowerCase().includes("tencel")) {
+          selector.value = "Sợi Tencel Bạch Đàn";
+        } else if (matched.toLowerCase().includes("bamboo") || matched.toLowerCase().includes("tre")) {
+          selector.value = "Sợi Bamboo Thảo Mộc";
+        } else if (matched.toLowerCase().includes("modal") || matched.toLowerCase().includes("sồi")) {
+          selector.value = "Sợi Modal Sương Khuya";
+        }
+
+        const reg = document.getElementById("register");
+        reg.scrollIntoView({ behavior: 'smooth' });
+      }
+
+
+      // Ambient sounds controller (Web Audio Synth)
+      let audioCtx = null;
+      let isAudioInited = false;
+      const trackState = {
+        rain: { isPlaying: false, volume: 0.5, buffer: null, source: null, gainNode: null, filterNode: null },
+        wind: { isPlaying: false, volume: 0.4, buffer: null, source: null, gainNode: null, filterNode: null, lfo: null },
+        sea: { isPlaying: false, volume: 0.3, buffer: null, source: null, gainNode: null, filterNode: null, lfo: null }
+      };
+      let masterGainNode = null;
+      let isMasterMuted = false;
+
+      function initBrowserAudioCtx() {
+        if (isAudioInited) return;
+
+        try {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          audioCtx = new AudioContextClass();
+
+          masterGainNode = audioCtx.createGain();
+          masterGainNode.gain.setValueAtTime(isMasterMuted ? 0 : 0.8, audioCtx.currentTime);
+          masterGainNode.connect(audioCtx.destination);
+
+          // Build Noise buffer
+          const bufferSize = audioCtx.sampleRate * 2;
+          const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+          const raw = noiseBuffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) {
+            raw[i] = Math.random() * 2 - 1;
+          }
+
+          // Distribute Buffer
+          trackState.rain.buffer = noiseBuffer;
+          trackState.wind.buffer = noiseBuffer;
+          trackState.sea.buffer = noiseBuffer;
+
+          // Hide warning block
+          document.getElementById("audio-click-notification").classList.add("hidden");
+          isAudioInited = true;
+        } catch (e) {
+          console.log("Audio contexts locked:", e);
+        }
+      }
+
+      function toggleMasterVolume() {
+        initBrowserAudioCtx();
+        if (audioCtx && audioCtx.state === "suspended") {
+          audioCtx.resume();
+        }
+
+        isMasterMuted = !isMasterMuted;
+        const icon = document.getElementById("master-mute-icon");
+        const btn = document.getElementById("master-mute-btn");
+
+        if (isMasterMuted) {
+          if (masterGainNode) masterGainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+          icon.setAttribute("data-lucide", "volume-x");
+          btn.classList.add("bg-red-50", "border-red-200", "text-red-600");
+        } else {
+          if (masterGainNode) masterGainNode.gain.setValueAtTime(0.8, audioCtx.currentTime);
+          icon.setAttribute("data-lucide", "volume-2");
+          btn.classList.remove("bg-red-50", "border-red-200", "text-red-600");
+        }
+        lucide.createIcons();
+      }
+
+      function toggleTrack(id) {
+        initBrowserAudioCtx();
+        if (audioCtx && audioCtx.state === "suspended") {
+          audioCtx.resume();
+        }
+
+        const track = trackState[id];
+        track.isPlaying = !track.isPlaying;
+
+        const btn = document.getElementById(`track-btn-${id}`);
+        const icon = document.getElementById(`track-icon-${id}`);
+        const volContainer = document.getElementById(`volume-container-${id}`);
+
+        if (track.isPlaying) {
+          // Play state UI
+          btn.classList.remove("bg-white", "text-[#5F7161]", "border-stone-200");
+          btn.classList.add("bg-[#5F7161]", "text-white");
+          icon.setAttribute("data-lucide", "pause");
+          volContainer.classList.remove("hidden");
+
+          startSynthesizing(id);
+        } else {
+          // Pause state UI
+          btn.classList.remove("bg-[#5F7161]", "text-white");
+          btn.classList.add("bg-white", "text-[#5F7161]", "border-stone-200");
+          icon.setAttribute("data-lucide", "play");
+          volContainer.classList.add("hidden");
+
+          stopSynthesizing(id);
+        }
+        lucide.createIcons();
+      }
+
+      function startSynthesizing(id) {
+        if (!audioCtx) return;
+        stopSynthesizing(id);
+
+        const track = trackState[id];
+
+        // Create Nodes
+        const source = audioCtx.createBufferSource();
+        source.buffer = track.buffer;
+        source.loop = true;
+
+        const gainNode = audioCtx.createGain();
+        gainNode.gain.setValueAtTime(track.volume, audioCtx.currentTime);
+
+        const filterNode = audioCtx.createBiquadFilter();
+
+        if (id === "rain") {
+          filterNode.type = "lowpass";
+          filterNode.frequency.setValueAtTime(900, audioCtx.currentTime);
+          filterNode.Q.setValueAtTime(1, audioCtx.currentTime);
+
+          source.connect(filterNode);
+          filterNode.connect(gainNode);
+        } else if (id === "wind") {
+          filterNode.type = "bandpass";
+          filterNode.frequency.setValueAtTime(450, audioCtx.currentTime);
+          filterNode.Q.setValueAtTime(4, audioCtx.currentTime);
+
+          const lfo = audioCtx.createOscillator();
+          lfo.frequency.setValueAtTime(0.08, audioCtx.currentTime);
+
+          const lfoGain = audioCtx.createGain();
+          lfoGain.gain.setValueAtTime(250, audioCtx.currentTime);
+
+          lfo.connect(lfoGain);
+          lfoGain.connect(filterNode.frequency);
+          lfo.start();
+
+          track.lfo = lfo;
+
+          source.connect(filterNode);
+          filterNode.connect(gainNode);
+        } else if (id === "sea") {
+          filterNode.type = "lowpass";
+          filterNode.frequency.setValueAtTime(280, audioCtx.currentTime);
+
+          const lfo = audioCtx.createOscillator();
+          lfo.frequency.setValueAtTime(0.09, audioCtx.currentTime); // slow sea tides
+
+          const lfoGain = audioCtx.createGain();
+          lfoGain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+
+          const staticGain = audioCtx.createGain();
+          staticGain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+
+          lfo.connect(lfoGain);
+          source.connect(filterNode);
+          filterNode.connect(staticGain);
+          staticGain.connect(gainNode);
+
+          lfoGain.connect(gainNode.gain);
+          lfo.start();
+
+          track.lfo = lfo;
+        }
+
+        gainNode.connect(masterGainNode);
+        source.start(0);
+
+        track.source = source;
+        track.gainNode = gainNode;
+        track.filterNode = filterNode;
+      }
+
+      function stopSynthesizing(id) {
+        const track = trackState[id];
+        try {
+          if (track.source) {
+            track.source.stop();
+            track.source.disconnect();
+            track.source = null;
+          }
+          if (track.gainNode) {
+            track.gainNode.disconnect();
+            track.gainNode = null;
+          }
+          if (track.filterNode) {
+            track.filterNode.disconnect();
+            track.filterNode = null;
+          }
+          if (track.lfo) {
+            track.lfo.stop();
+            track.lfo.disconnect();
+            track.lfo = null;
+          }
+        } catch (e) {
+          console.log("Audio node clear err:", id, e);
+        }
+      }
+
+      function adjustTrackVolume(id, vol) {
+        const track = trackState[id];
+        track.volume = parseFloat(vol);
+        if (track.gainNode && audioCtx) {
+          track.gainNode.gain.setValueAtTime(track.volume, audioCtx.currentTime);
+        }
+      }
+
+
+      // FOREST GARDEN & SOCIAL FEED DATA ENGINE
+      let currentTreesCount = 1428;
+      const initialFeed = [
+        {
+          id: "p1",
+          author: "Nguyễn Thảo Nguyên",
+          avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop",
+          text: "Mền Tencel dệt bạch đàn của Everon mềm xốp mướt mát dã man mọi người ơi! Trực tiếp chạm là lịm lạnh cả sống lưng gác đầu ngủ sâu tắp lự.",
+          date: "Vừa xong",
+          likes: 24
+        },
+        {
+          id: "p2",
+          author: "Trần Minh Tâm",
+          avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
+          text: "Rinh trọn gói Bamboo mộc cho ba má ngủ hạ nhức mỏi thở mát re cụ sướng cực kỳ. Chương trình một chiếc ga gieo một gốc lim rừng thật đầy tình người.",
+          date: "2 giờ trước",
+          likes: 42
+        },
+        {
+          id: "p3",
+          author: "Cao Hà Thanh Hương",
+          avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop",
+          text: "Nằm nhắm mắt nghe hòa thanh mưa trong xơ mộc rả rích dập tan ồn ào phố xá bực nóng quá dịu lòng. Gốc cây mang tên tôi đã được Hòa Bình ôm đất mầm mới.",
+          date: "5 giờ trước",
+          likes: 19
+        }
+      ];
+
+      function renderSocialFeed() {
+        const feedContainer = document.getElementById("social-feed-list");
+        feedContainer.innerHTML = "";
+
+        initialFeed.forEach(post => {
+          feedContainer.innerHTML += `
+            <div class="bg-white p-5 rounded-2xl border border-stone-100 shadow-sm space-y-3 hover:shadow-md transition">
+              <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                  <img src="${post.avatar}" class="w-8 h-8 rounded-full object-cover shrink-0" alt="${post.author}" />
+                  <div>
+                    <h5 class="text-xs font-bold text-[#333333]">${post.author}</h5>
+                    <span class="text-[9px] text-[#8E8D8A]">${post.date}</span>
+                  </div>
+                </div>
+                
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-emerald-50 text-[10px] text-emerald-800 font-bold border border-emerald-100">
+                  <i data-lucide="tree-pine" class="w-3 h-3 text-emerald-600"></i> +1 Cây Đã Gieo Trồng
+                </span>
+              </div>
+              
+              <p class="text-xs text-stone-700 font-light leading-relaxed">
+                ${post.text}
+              </p>
+
+              <div class="flex items-center gap-4 pt-1.5 text-[10px] text-[#8E8D8A]">
+                <button
+                  onclick="likeSocialPost('${post.id}')"
+                  class="flex items-center gap-1 hover:text-red-500 transition cursor-pointer"
+                >
+                  <i data-lucide="heart" class="w-3.5 h-3.5 text-red-500 fill-current"></i> Thích (${post.likes})
+                </button>
+                <span class="text-stone-200">|</span>
+                <span class="font-mono">#EveronEcoSleep</span>
+              </div>
+            </div>
+          `;
+        });
+        lucide.createIcons();
+      }
+
+      function likeSocialPost(id) {
+        const item = initialFeed.find(p => p.id === id);
+        if (item) {
+          item.likes += 1;
+          renderSocialFeed();
+        }
+      }
+
+      function handlePlantAndPost(event) {
+        event.preventDefault();
+        
+        const author = document.getElementById("story-author").value.trim();
+        const text = document.getElementById("story-text").value.trim();
+
+        if (!author || !text) return;
+
+        // Append new post dynamically
+        const newPost = {
+          id: "post-" + Date.now(),
+          author: author,
+          avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200&auto=format&fit=crop",
+          text: text,
+          date: "Vừa xong",
+          likes: 1
+        };
+
+        initialFeed.unshift(newPost);
+        
+        // Boost counter
+        currentTreesCount += 1;
+        document.getElementById("planted-trees-count").innerText = currentTreesCount;
+
+        // Visual flash indicator
+        const container = document.getElementById("tree-gauge-container");
+        container.classList.add("scale-105", "bg-emerald-50", "border-emerald-200");
+        setTimeout(() => {
+          container.classList.remove("scale-105", "bg-emerald-50", "border-emerald-200");
+        }, 800);
+
+        // Reset inputs and re-render
+        document.getElementById("story-author").value = "";
+        document.getElementById("story-text").value = "";
+        renderSocialFeed();
+      }
+
+
+      // CONVERSION LEAD CAPTURE FORM CONTROLS
+      let leadVoucherCode = "";
+
+      function handleLeadSubmitForm(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("lead-name").value.trim();
+        const contact = document.getElementById("lead-contact").value.trim();
+        const fabric = document.getElementById("lead-fabric-select").value;
+        const mattress = document.getElementById("lead-mattress-select").value;
+
+        if (!name || !contact) return;
+
+        // Seed voucher
+        const salt = name.toUpperCase().substring(0, 3).replace(/[^A-Z]/g, "ECO");
+        const rn = Math.floor(1000 + Math.random() * 9000);
+        leadVoucherCode = `ECO-${salt}-${rn}`;
+
+        // Populate Success area
+        document.getElementById("succ-subm-name").innerText = name;
+        document.getElementById("succ-subm-contact").innerText = contact;
+        document.getElementById("succ-subm-fabric").innerText = fabric;
+        document.getElementById("succ-voucher-code").innerText = leadVoucherCode;
+
+        // Transition Screen
+        document.getElementById("lead-form-area").classList.add("hidden");
+        document.getElementById("lead-success-area").classList.remove("hidden");
+      }
+
+      function copyVoucherCode() {
+        if (!leadVoucherCode) return;
+        navigator.clipboard.writeText(leadVoucherCode);
+        
+        const btnText = document.getElementById("copy-btn-text");
+        btnText.innerText = "Đã sao chép thành công!";
+        setTimeout(() => {
+          btnText.innerText = "Sao chép mã voucher";
+        }, 2000);
+      }
+
+      function resetLeadForm() {
+        document.getElementById("lead-name").value = "";
+        document.getElementById("lead-contact").value = "";
+        
+        document.getElementById("lead-success-area").classList.add("hidden");
+        document.getElementById("lead-form-area").classList.remove("hidden");
+      }
+
+
+      // ACCORDION TOGGLE
+      function toggleFaqAccordion(idx) {
+        const body = document.getElementById(`faq-body-${idx}`);
+        const chevron = document.getElementById(`faq-chevron-${idx}`);
+
+        // Close others
+        [0, 1, 2].forEach(i => {
+          if (i !== idx) {
+            const b = document.getElementById(`faq-body-${i}`);
+            const c = document.getElementById(`faq-chevron-${i}`);
+            b.style.maxHeight = null;
+            c.classList.remove("rotate-180");
+          }
+        });
+
+        if (body.style.maxHeight) {
+          body.style.maxHeight = null;
+          chevron.classList.remove("rotate-180");
+        } else {
+          body.style.maxHeight = body.scrollHeight + "px";
+          chevron.classList.add("rotate-180");
+        }
+      }
+
+    </script>
+  </body>
+</html>
